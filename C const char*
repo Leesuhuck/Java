@@ -1,0 +1,54 @@
+#include <stdio.h>
+//xcode-select --install
+
+int main(){
+int low, high;
+int Temp=0;
+int array[6];
+
+
+scanf("%d %d", &low, &high);
+
+
+for (int i=0; i<6; i++) {
+scanf("%d",&array[i]);
+}
+
+for (int j=0; j<low; j++) {
+    for (int i=0; i<high; i++) {
+        array[Temp]=pow(array[Temp],2);
+        printf("%d ",array[Temp]);
+        Temp=Temp+1;
+    }
+    printf("\n");
+    
+}
+
+return 0;
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+//xcode-select --install
+
+int main(){
+
+printf("Enter a sentence with Korean and English letters\n");
+char String;
+scanf("%s",String);
+int k_letters(const char* string);
+//문자열이 저장된 메모리의 첫주소를 저장할수 있는 포인터 변수 String
+
+아스키 코드 최대 수치126
+printf("%d",(int)a);
+
+
+printf("Enter a sentence with Korean and English letters\n");
+char Exit;
+scanf("%s",&Exit);
+if ("quit"==&Exit) {
+system("pause");
+}
+
+}
