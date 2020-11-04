@@ -1,39 +1,86 @@
-public class xschool {
+public class Student {
+	
+	//String student_no;
+	String Name;
+	String address;
+	String phome_num;
+	String birth_num;
+	int java1;
+	int java2;
+	static String k;
+	// 멤버
 
-    String name;
-    String student_ID;
-    String age;
-    String address;
-    String clue;
-
-    int asd(String name, String student_ID, String address) {
-        this.name="이름 :"+name;
-        this.student_ID=student_ID;
-        this.address=address;
-        System.out.println("");
-        return 0;
-    }
-
+	 int sugang(String student_no, String nt_name) {
+		 //성적표
+		 String a;
+		 a = student_no;
+		 this.Name = a;
+		 //멤버변수 활용 this
+		 k = a;
+		 //전역변수 값지정
+		System.out.printf(Name+"는"+nt_name+"과목에"+java1+"점을 반영했습니다.");
+		System.out.printf(Name+"는"+nt_name+"과목에"+java2+"점을 반영했습니다.");
+		System.out.println();
+		return 0;
+	}
+	 
+	 int bbs(String student_no, String text, String phome_num) {
+			//게시판
+		 System.out.printf(student_no+"학생의"+text+"목록 게시글을작성했습니다.\br"+"연락처는"+phome_num+"입니다.");
+		 System.out.println();
+		 return 0;
+		}
 }
 
 
-public class yschool extends xschool {
+public class BokStudent extends Student {
+	String bok_day;
+	String ip_day;
+	int head_size;
+	
+	void honbap(String bob, String sub_bob, String num_bob) 
+	{
+		System.out.printf("밥종류 :"+bob);
+		System.out.printf("반찬종류 :"+sub_bob);
+		System.out.printf("식판개수 :" +num_bob);
+		System.out.println();
+	}
+	
+	//DB
+	public static void main (String[] args) {
+		Student std = new Student();
+		BokStudent btd = new BokStudent();
+		//객체생성
+	
+		String bob;
+		String sub_bob;
+		String num_bob;
+		//일반
+		
+		std.Name="가나";
+		std.birth_num="03/18";
+		std.address="안성";
+		std.phome_num="010-0101-0101";
+		std.java1=98;
+		std.java2=87;
+		std.sugang("1801010101","자바");
+		
+		
+		btd.Name="다라";
+		btd.birth_num="03/28";
+		btd.address="서울";
+		btd.phome_num="010-1010-1010";
+		btd.java1=32;
+		btd.java2=20;
+		btd.sugang("2001010101","복학시험");
+		
+		bob = "콩밥";
+		sub_bob = "두더지";
+		num_bob = "1판";
+		//속성값
+		
+		btd.honbap(bob, sub_bob,num_bob);
+		//메서드값 호출
+	}
 
-    public static void main (String args[]) {
-        xschool src = new xschool();
-        yschool brc = new yschool();
-
-    src.name="조던_피터슨";
-    src.student_ID="11-11111111";
-    src.address="USA";
-    src.age = "65";
-
-    brc.name="드웨인_존슨";
-    brc.student_ID="1234-12345678";
-    brc.address="USA";
-    brc.age = "42";
-    brc.clue ="희생";
-
-
-    }
 }
