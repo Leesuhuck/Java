@@ -19,7 +19,7 @@
         android:id="@+id/text2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="30dp"//마진
         android:layout_marginLeft="100dp"
         android:hint="0" />
 
