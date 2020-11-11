@@ -20,8 +20,8 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-    android:layout_marginLeft="100dp"
-    android:hint="0" />
+        android:layout_marginLeft="100dp"
+        android:hint="0" />
 
     <EditText
         android:id="@+id/text3"
