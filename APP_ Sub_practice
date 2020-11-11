@@ -4,13 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Loan_interest">
+    tools:context=".SubActivity">
 
     <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-        android:textSize="30sp"//폰트크기
-    android:text="도착" />
+        android:id="@+id/text_sub"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        />
 
+    <TextView
+        android:id="@+id/text_sub2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="-100dp"/>
+
+    <TextView
+        android:id="@+id/text_sub3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="-100dp"/>
 
 </LinearLayout>
+
