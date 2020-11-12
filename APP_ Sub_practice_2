@@ -1,4 +1,4 @@
-package com.example.mytem;
+package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,9 @@ import android.widget.TextView;
 public class SubActivity extends AppCompatActivity {
 
     private TextView text_sub;
+
     private TextView text_sub2;
+
     private TextView text_sub3;
 
     @Override
@@ -19,11 +21,19 @@ public class SubActivity extends AppCompatActivity {
         text_sub = findViewById(R.id.text_sub);
         text_sub2 = findViewById(R.id.text_sub2);
         text_sub3 = findViewById(R.id.text_sub3);
+
         Intent intent2 = getIntent();
         String str = intent2.getStringExtra("str");
 
-        text_sub.setText(str);
+        Intent intent3 = getIntent();
+        String btr = intent3.getStringExtra("btr");
 
+        Intent intent4 = getIntent();
+        String ctr = intent4.getStringExtra("ctr");
+
+        text_sub.setText(str);
+        text_sub2.setText(btr);
+        text_sub3.setText(ctr);
 
     }
 
