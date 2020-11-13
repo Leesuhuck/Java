@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,18 +35,18 @@ public class MainActivity extends AppCompatActivity {
         btn_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(MainActivity.this , SubActivity.class); //이동경로
-                Intent intent3 = new Intent(MainActivity.this , SubActivity.class);
-                Intent intent4 = new Intent(MainActivity.this , SubActivity.class);
+                Intent intent2 = new Intent(MainActivity.this , Loan_interest.class); //이동경로
+
+                String str = text.getText().toString(); //값가져오기
+                String btr = text2.getText().toString();
+                String ctr = text3.getText().toString();
+
                 intent2.putExtra("str", str);
-                intent3.putExtra("btr", btr);
-                intent4.putExtra("ctr", ctr);
+                intent2.putExtra("btr", btr);
+                intent2.putExtra("ctr", ctr);
+
                 startActivity(intent2); //액티비티 이동
-                startActivity(intent3);
-                startActivity(intent4);
-                str = text.getText().toString(); //값가져오기
-                btr = text2.getText().toString();
-                ctr = text3.getText().toString();
+
 
             }
         });
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , SubActivity.class);
+                Intent intent = new Intent(MainActivity.this , Loan_interest.class);
                 startActivity(intent);
             }
 
