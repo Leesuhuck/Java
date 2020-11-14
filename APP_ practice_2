@@ -1,4 +1,4 @@
-package com.example.test;
+package com.example.my_char;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,15 +10,13 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button btn_text,btn_move;
 
-    private Button btn_text;
-    private Button btn_move;
-    private EditText text;
-    private EditText text2;
-    private EditText text3;
-    String str;
-    String btr;
-    String ctr;
+    EditText text, text2, text3;
+
+    String str, btr, ctr, Map;
+
+    double value;
 
 
 
@@ -35,17 +33,25 @@ public class MainActivity extends AppCompatActivity {
         btn_text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(MainActivity.this , Loan_interest.class); //이동경로
+                Intent intent2 = new Intent(MainActivity.this , MainActivity2.class); //이동경로
 
-                String str = text.getText().toString(); //값가져오기
-                String btr = text2.getText().toString();
-                String ctr = text3.getText().toString();
+                str = text.getText().toString();
+                btr = text2.getText().toString();
+                ctr = text3.getText().toString();
 
+                value = Double.valueOf(str).doubleValue() + Double.valueOf(btr).doubleValue() + Double.valueOf(ctr).doubleValue(); //실수로 변환 공식
+                Map = ""+value; // 문자열로 변환
+                str = ""+str;
+                btr = ""+btr;
+                ctr = ""+ctr;
+
+                intent2.putExtra("value", Map); //값저장
                 intent2.putExtra("str", str);
                 intent2.putExtra("btr", btr);
                 intent2.putExtra("ctr", ctr);
 
-                startActivity(intent2); //액티비티 이동
+                startActivity(intent2); // 저장한 값과 함께 액티비티 이동
+
 
 
             }
@@ -55,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , Loan_interest.class);
+                Intent intent = new Intent(MainActivity.this , MainActivity2.class);
                 startActivity(intent);
             }
 
