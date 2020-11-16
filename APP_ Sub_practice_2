@@ -1,31 +1,208 @@
-package com.example.my_char;
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10pt"
+    tools:context=".MainActivity">
 
-import androidx.appcompat.app.AppCompatActivity;
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="원금 균등 상환 방식"
+        android:textSize="10pt"
+        />
+        <!--원금 버튼-->
+    <Button
+        android:id="@+id/btn_principal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5pt"
+        android:text="자세히"
+        android:textSize="8pt"
+        />
+    </LinearLayout>
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.TextView;
+        <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-public class MainActivity2 extends AppCompatActivity {
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이자비용"
+                android:textSize="10pt" />
 
-    private TextView text_sub, text_sub2, text_sub3;
+            <!--원금 이자비용 아이디-->
+            <TextView
+                android:id="@+id/text_interest_principal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10pt" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원 / "
+                android:textSize="10pt" />
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        text_sub = findViewById(R.id.text_sub);
-        text_sub2 = findViewById(R.id.text_sub2);
-        text_sub3 = findViewById(R.id.text_sub3);
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상환 금액"
+                android:textSize="10pt" />
 
-        Intent intent2 = getIntent();
+            <!--원금 상환금액 아이디-->
+            <TextView
+                android:id="@+id/text_Repayment_principal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10pt" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원 "
+                android:textSize="10pt" />
+        </LinearLayout>
 
-        String value; //문자열 지정
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10pt">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원리금 균등 상환 방식"
+            android:textSize="10pt"
+            />
+        <!--원리금 버튼-->
+        <Button
+            android:id="@+id/btn_wonligeum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자세히"
+            android:layout_marginLeft="5pt"
+            android:textSize="8pt"
+            />
+    </LinearLayout>
 
-        value = intent2.getStringExtra("value"); // 적용했던값 불러오기
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        text_sub.setText(String.valueOf(value)); // 화면에 적용
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이자비용"
+                android:textSize="10pt" />
 
-    }
+            <!--원리금 이자비용 아이디-->
+            <TextView
+                android:id="@+id/text_interest_wonligeum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10pt" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원 / "
+                android:textSize="10pt" />
 
-}
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상환 금액"
+                android:textSize="10pt" />
+
+            <!--원리금 상환금액 아이디-->
+            <TextView
+                android:id="@+id/text_Repayment_wonligeum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10pt" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원 "
+                android:textSize="10pt" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10pt">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="만기 일시 상환 방식"
+            android:textSize="10pt"
+            />
+        <!--만기 버튼-->
+        <Button
+            android:id="@+id/btn_maturity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자세히"
+            android:layout_marginLeft="5pt"
+            android:textSize="8pt"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이자비용"
+            android:textSize="10pt" />
+
+        <!--만기 이자비용 아이디-->
+        <TextView
+            android:id="@+id/text_interest_maturity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10pt" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원 / "
+            android:textSize="10pt" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상환 금액"
+            android:textSize="10pt" />
+
+        <!--만기 상환금액 아이디-->
+        <TextView
+            android:id="@+id/text_Repayment_maturity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10pt" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원 "
+            android:textSize="10pt" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+
+
