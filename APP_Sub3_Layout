@@ -74,8 +74,6 @@
         </TextView>
     </LinearLayout>
 
-    <!--여기는 토의이후에;-->
-
     <LinearLayout
         android:layout_marginTop="5pt"
         android:layout_width="match_parent"
