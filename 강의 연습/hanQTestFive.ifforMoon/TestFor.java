@@ -51,7 +51,7 @@ public class TestFor {
 		}
 	}		
 	*/
-		
+	/*
 		int a = 0;
 		
 		for (; a < 5; ++a) {
@@ -66,5 +66,22 @@ public class TestFor {
 			System.out.println(valueM);
 
 	}
-
+	*/
+	for (int i = 2; i <= 9; i++) {
+			
+			if (i == 4) {
+				
+				for (int j = 1; j < 10; j++) {
+					
+					System.out.println(i + " X " + j + " = " + (i * j + 1));
+					
+				}
+				
+			}else {
+				
+				for (int j = 1; j < 10; j++) {
+					System.out.println(i + " X " + j + " = " + i * j);
+					
+				}
+			}
 }
