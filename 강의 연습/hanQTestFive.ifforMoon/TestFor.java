@@ -67,6 +67,8 @@ public class TestFor {
 
 	}
 	*/
+
+	/*
 	for (int i = 2; i <= 9; i++) {
 			
 			if (i == 4) {
@@ -84,4 +86,48 @@ public class TestFor {
 					
 				}
 			}
+	*/
+
+	/*
+	for (int i = 2; i <= 9; i++) {
+		
+			for (int j = 1; j < 10; j++) {
+				int value = 0;
+				
+				if (i == 4) {
+					value = i * j +1;
+				
+				} else {
+					value = i * j;
+			}
+					
+			System.out.println(i + " X " + j + " = " + value);
+				
+		}
+				
+		System.out.println("\n");
+	}
+	*/
+
+	for (int i = 2; i <= 9; i++) {
+		
+		if (i == 4) {
+			
+			copy(i, 1);
+		} else {
+			
+			copy(i, 0);
+		}
+		
+		System.out.println("\n");
+	}
 }
+
+public static void copy(int i, int z) {
+		
+		for (int j = 1; j < 10; j++) {
+			
+			System.out.println(i + " X " + j + " = " + (i * j + z));	
+		}
+		
+	}
