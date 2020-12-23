@@ -108,7 +108,7 @@ public class TestFor {
 		System.out.println("\n");
 	}
 	*/
-
+/*
 	for (int i = 2; i <= 9; i++) {
 		
 		if (i == 4) {
@@ -131,3 +131,101 @@ public static void copy(int i, int z) {
 		}
 		
 	}
+*/
+		/*
+		public static void main(String[] args) {
+				
+				TestFor testFor = new TestFor();
+				testFor.guguDan(9, 2);
+			}
+			
+			public static void guguDan(int getA, int getB) {
+				
+				for (int i = 1; i <= getB; i++) {
+					System.out.println(getA + " X " + i + " = " + getA * i);
+				}
+			}
+		*/
+		/*
+		public static void main(String[] args) {
+				
+				TestFor testFor = new TestFor();
+				testFor.guguDan(0, 2);
+			}
+			
+			public static void guguDan(int getA, int getB) {
+				
+				if (getA != 0) {
+					
+					for (int i = 1; i <= getB; i++) {
+						System.out.println(getA + " X " + i + " = " + getA * i);
+					}
+				} else {
+					
+					for (int i = 2; i <10; i++) {
+						for (int j = 1; j <10; j++) {
+							System.out.println(i + " X " + j + " = " + i * j);
+						}
+						System.out.println();
+					}
+				}
+			}
+		*/
+		/*
+			public static void main(String[] args) {
+				
+				TestFor testFor = new TestFor();
+				testFor.guguDan(0, 9);
+			}
+			
+			public static void guguDan(int getA, int getB) {
+				int a = getB,
+					b = getA;
+				
+				if (getA == 0) {
+					
+					
+				}
+				
+				getA = 2;
+				
+				for (; getA < a + 1; getA++) {
+					
+					for (getB = 1; getB < a + 1; getB++) {
+						System.out.println(getA + " X " + getB + " = " + getA * getB);
+					}
+					System.out.println();
+				
+				}
+			}
+		*/
+/*
+	public static void main(String[] args) {
+		
+		TestFor testFor = new TestFor();
+		testFor.guguDan(0, 7);
+	}
+	
+	public static void guguDan(int getA, int getB) {
+		int a = getB,
+			b = getA;
+		
+		if (getA == 0) {
+			
+			getA = 2;
+			a = 9;
+			
+		}
+		
+		for (; getA < a + 1; getA++) {
+			
+			for (getB = 1; getB < a + 1; getB++) {
+				System.out.println(getA + " X " + getB + " = " + getA * getB);
+			}
+			System.out.println();
+		
+		}
+	}
+*/
+	}
+}
