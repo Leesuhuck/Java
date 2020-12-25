@@ -8,7 +8,7 @@ public abstract class HanqEaVer2 extends HanqEa {
 	 */
 	@Override
 	public void semina() {
-		System.out.println("세미나 없어요");
+		System.out.println(HanqEaI.NO_SEMINA);
 		
 	}
 }

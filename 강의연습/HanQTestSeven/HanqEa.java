@@ -1,6 +1,6 @@
 package hanQTestSeven;
 
-public abstract class HanqEa {
+public abstract class HanqEa implements HanqEaI {
 
 	//추상메서드
 	//추상메서드는 구현부가없다.

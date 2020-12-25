@@ -1,5 +1,8 @@
 package hanQTestSeven;
 
+// A학원에 부모는! 한큐Ea!
+// 인터페이스를 상속할때는 extends를 사용하지않는다.
+// implements 를 사용한다.
 public class AHakWong extends HanqEa {
 
 	/*
@@ -12,13 +15,14 @@ public class AHakWong extends HanqEa {
 	}
 
 	@Override
-	public void steps() {
-		System.out.println("옐로우2기 모집합니다.");
+	public void edu() {
+		System.out.println("그린2기 모집합니다.");
 	}
 
 	@Override
-	public void edu() {
-		System.out.println("그린2기 모집합니다.");
+	public void steps() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
