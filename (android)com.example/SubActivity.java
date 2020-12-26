@@ -17,10 +17,6 @@ public class SubActivity extends AppCompatActivity {
 
     Button btn_p, btn_w, btn_m;
 
-    double ful, inte_mmoney; //이름 다시 지정하기
-
-    String Max_ful; // 이름 다시 지정하기
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +36,12 @@ public class SubActivity extends AppCompatActivity {
 
         String str, btr, ctr, value_p_1, value_p_2, value_w_1, value_w_2, value_m_1, value_m_2; //문자열 지정
 
-        value_p_1 = intent2.getStringExtra("Map_p_1"); // 사용자 이자 값 수식 결과 가져오기
-        value_p_2 = intent2.getStringExtra("Map_p_2"); // 사용자 이자 값 수식 결과 가져오기
-        value_w_1 = intent2.getStringExtra("Map_w_1"); // 사용자 이자 값 수식 결과 가져오기
-        value_w_2 = intent2.getStringExtra("Map_w_2"); // 사용자 이자 값 수식 결과 가져오기
-        value_m_1 = intent2.getStringExtra("Map_m_1"); // 사용자 이자 값 수식 결과 가져오기
-        value_m_2 = intent2.getStringExtra("Map_m_2"); // 사용자 이자 값 수식 결과 가져오기
+        value_p_1 = intent2.getStringExtra("value_p_1"); // 사용자 이자 값 수식 결과 가져오기
+        value_p_2 = intent2.getStringExtra("value_p_2"); // 사용자 이자 값 수식 결과 가져오기
+        value_w_1 = intent2.getStringExtra("value_w_1"); // 사용자 이자 값 수식 결과 가져오기
+        value_w_2 = intent2.getStringExtra("value_w_2"); // 사용자 이자 값 수식 결과 가져오기
+        value_m_1 = intent2.getStringExtra("value_m_1"); // 사용자 이자 값 수식 결과 가져오기
+        value_m_2 = intent2.getStringExtra("value_m_2"); // 사용자 이자 값 수식 결과 가져오기
 
         str = intent2.getStringExtra("str"); // 사용자 원하는 str 입력값
         btr = intent2.getStringExtra("btr"); // 사용자 원하는 btr 입력값
@@ -65,30 +61,14 @@ public class SubActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent3 = new Intent(SubActivity.this, Sub2_Activity.class); //총 원금 이동경로
                 // 원금 총합 이자 상환 금액식 추가
-                Max_ful = String.valueOf(ful);
 
-                double inter = Double.valueOf(btr).doubleValue() / 100; //btr
-                double mmoney = Double.valueOf(str).doubleValue() / Double.valueOf(ctr).doubleValue(); //str ctr
-                double inte = 0, sum = 0;
-                double ex_str = Double.valueOf(str).doubleValue();
-                for (int i = 1; i < (Double.valueOf(ctr).doubleValue() + 1); i++) { //ctr
-                    inte = ex_str * (int)inter / Double.valueOf(ctr).doubleValue(); //str ctr
+                intent3.putExtra("str", str); //만리금 상환 값저장
+                intent3.putExtra("btr", btr); //만리금 상환 값저장
+                intent3.putExtra("ctr", ctr); //만리금 상환 값저장
 
-                    if (i < 10) {
-                        inte_mmoney=inte + mmoney;
-                        Max_ful=("0"+ i +"번째 달 상환 금액 : "+ inte_mmoney +"원 \n");
-                        Max_ful=("> 이자비용 : "+ inte +"원, 상환금액 : "+ mmoney +"원 \n");
-                        intent3.putExtra("Max_ful", Max_ful); //원금 총합 값 저장
-                    }
-                    else {
-                        Max_ful=("0"+ i +"번째 달 상환 금액 : "+ inte_mmoney +"원 \n");
-                        Max_ful=("> 이자비용 : "+ inte +"원, 상환금액 : "+ mmoney +"원 \n");
-                        intent3.putExtra("Max_ful", Max_ful); //원금 총합 값 저장
-                    }
-                    ex_str -= mmoney; //str
-                    sum += inte;
-                };
-                // ful = Double.valueOf(str).doubleValue() + Double.valueOf(btr).doubleValue() + Double.valueOf(ctr).doubleValue(); // 원금 총합 식 입력할것.
+                intent3.putExtra("value_p_1", value_p_1);
+                intent3.putExtra("value_p_2", value_p_2);
+
                 startActivity(intent3);
             }
         });
@@ -98,41 +78,14 @@ public class SubActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent4 = new Intent(SubActivity.this, Sub3_Activity.class); //총 원리금 이동경로
                 // 원리금 총합 이자 상환 금액 추가
-                Max_ful = String.valueOf(ful);
 
-                double inter = Double.valueOf(btr).doubleValue() / 100; //btr
+                intent4.putExtra("str", str); //만리금 상환 값저장
+                intent4.putExtra("btr", btr); //만리금 상환 값저장
+                intent4.putExtra("ctr", ctr); //만리금 상환 값저장
 
-                double first = Double.valueOf(str).doubleValue(); //str
-
-                double son_f = Double.valueOf(str).doubleValue() * (inter / 12); //str
-                double son_d = pow(1 + (inter / 12), Double.valueOf(str).doubleValue()); //str
-                double mother = pow(1 + (inter / 12), Double.valueOf(str).doubleValue()); //str
-                mother = mother - 1;
-
-                double princ = round(son_f * son_d / mother);
-                double inte = 0;
-                double sum = 0, mmoney = 0;
-                double ex_str = Double.valueOf(str).doubleValue();
-                for (int i = 1; i < (Double.valueOf(ctr).doubleValue() + 1); i++) { //ctr
-                    inte = round(ex_str * inter / Double.valueOf(ctr).doubleValue()); //str, ctr
-                    mmoney = princ - inte;
-
-                    if (i < 10) {
-
-                        Max_ful=("0"+ i +"번째 달 상환 금액 : "+ princ +"원 \n");
-                        Max_ful=("> 이자비용 : "+ (int)inte +"원, 상환금액 : "+ mmoney +"원 \n");
-                        intent4.putExtra("Max_ful", Max_ful);//원리금 총합 값 저장
-                    }
-                    else {
-                        Max_ful=("0"+ i +"번째 달 상환 금액 : "+ princ +"원 \n");
-                        Max_ful=("> 이자비용 : "+ (int)inte +"원, 상환금액 : "+ mmoney +"원 \n");
-                        intent4.putExtra("Max_ful", Max_ful);//원리금 총합 값 저장
-                    }
-
-                    ex_str -= mmoney; //str
-                    sum += inte;
-                }
                 // ful = Double.valueOf(str).doubleValue() + Double.valueOf(btr).doubleValue() + Double.valueOf(ctr).doubleValue(); // 원리금 총합 식 입력할것.
+                intent4.putExtra("value_w_1", value_w_1);
+                intent4.putExtra("value_w_2", value_w_2);
 
                 startActivity(intent4);
             }
@@ -143,34 +96,15 @@ public class SubActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent5 = new Intent(SubActivity.this, Sub4_Activity.class); //총 만기 이동경로
                 // 만기금 총합 이자 상환 금액 추가
-                double inter = Double.valueOf(btr).doubleValue() / 100; //btr
-                double inte = Double.valueOf(str).doubleValue() * inter / 12; //str
-                int minte = (int)inte;
 
-                int sum = 0;
-                double ex_str = Double.valueOf(str).doubleValue();
-                for (int i = 1; i < ex_str; i++) {
-                    if (i < 10) {
-                        Max_ful=(i +"번째 달 상환 금액 : "+ minte +"원 \n");
-                        Max_ful=("> 이자비용 : "+ minte +"원, 상환금액 : 0원 \n");
-                        intent5.putExtra("Max_ful", Max_ful);//만리금 총합 값 저장
-                    }
-                    else {
-                        Max_ful=(i+"번째 달 상환 금액 : "+ minte +"원 \n");
-                        Max_ful=("> 이자비용 : "+ minte +"원, 상환금액 : 0원 \n");
-                        intent5.putExtra("Max_ful", Max_ful);//만리금 총합 값 저장
-                    }
-                    sum += minte;
-                }
-                int minte_money = (int)(minte + Double.valueOf(ctr).doubleValue());
-                Max_ful=("--------------------------------------------------\n");
-                Max_ful=(Double.valueOf(ctr).doubleValue()+"번째 달 상환 금액 : "+ minte_money +"원 \n"); //ctr ctr
-                Max_ful=("> 이자비용 : "+ minte +"원, 상환금액 : "+ Double.valueOf(ctr).doubleValue() +"원 \n"); //ctr
-
-                sum += minte;
+                intent5.putExtra("str", str); //만리금 상환 값저장
+                intent5.putExtra("btr", btr); //만리금 상환 값저장
+                intent5.putExtra("ctr", ctr); //만리금 상환 값저장
 
                 //ful = Double.valueOf(str).doubleValue() + Double.valueOf(btr).doubleValue() + Double.valueOf(ctr).doubleValue(); // 만리금 총합 식 입력할것.
-                Max_ful = String.valueOf(ful);
+
+                intent5.putExtra("value_m_1", value_m_1);
+                intent5.putExtra("value_m_2", value_m_2);
 
                 startActivity(intent5);
             }
