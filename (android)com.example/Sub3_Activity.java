@@ -13,7 +13,7 @@ public class Sub3_Activity extends AppCompatActivity {
 
     private TextView text_end_I_w, text_end_R_w,text_theorem_I_R_w;
 
-    String Max_ful;
+    String Max_ful_w, Max_ful2_w, str, btr, ctr, value_p_1, value_p_2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,15 @@ public class Sub3_Activity extends AppCompatActivity {
 
         Intent intent4 = getIntent(); // intent4 저장값 가져오기
 
-        Max_ful = intent4.getStringExtra("Max_ful"); // 사용자 이자 값 수식 결과 가져오기
+        str = intent4.getStringExtra("str"); // 사용자 원하는 str 입력값
+        btr = intent4.getStringExtra("btr"); // 사용자 원하는 btr 입력값
+        ctr = intent4.getStringExtra("ctr"); // 사용자 원하는 ctr 입력값
 
-        text_end_I_w.setText(String.valueOf(Max_ful)); // 원금 이자 결과 화면에 적용
+        value_p_1 = intent4.getStringExtra("value_p_1"); // 사용자 이자 값 수식 결과 가져오기
+        value_p_2 = intent4.getStringExtra("value_p_2"); // 사용자 이자 값 수식 결과 가져오기
+
+        text_end_I_w.setText(String.valueOf(value_p_1)); // 원금 이자 결과 화면에 적용
+        text_end_R_w.setText(String.valueOf(value_p_2)); // 원금 이자 결과 화면에 적용
 
         double inter = Double.valueOf(btr).doubleValue() / 100; //btr
 
@@ -38,26 +44,30 @@ public class Sub3_Activity extends AppCompatActivity {
         double mother = pow(1 + (inter / 12), Double.valueOf(str).doubleValue()); //str
         mother = mother - 1;
 
+        double ex_str = Double.valueOf(str).doubleValue();
+        double ex_ctr = Double.valueOf(ctr).doubleValue();
+
         double princ = round(son_f * son_d / mother);
         double inte = 0;
         double sum = 0, mmoney = 0;
-        double ex_str = Double.valueOf(str).doubleValue();
-        for (int i = 1; i < (Double.valueOf(ctr).doubleValue() + 1); i++) { //ctr
-            inte = round(ex_str * inter / Double.valueOf(ctr).doubleValue()); //str, ctr
+
+        text_theorem_I_R_w.setText("실행\n");
+
+        for (int i = 1; i < ((int)ex_ctr + 1); i++) { //ctr
+            inte = round(ex_str * inter / (int)ex_ctr); //str, ctr
             mmoney = princ - inte;
 
             if (i < 10) {
-
-                Max_ful_w[i]=("0"+ i +"번째 달 상환 금액 : "+ princ +"원 \n");
-                Max_ful2_w[i]=("> 이자비용 : "+ (int)inte +"원, 상환금액 : "+ mmoney +"원 \n");
-                intent4.putExtra("Max_ful", Max_ful_w[i]);//원리금 총합 값 저장
-                intent4.putExtra("Max_ful", Max_ful2_w[i]);
+                Max_ful_w= ("0"+ i +"번째 달 상환 금액 : "+ princ +"원 \n");
+                text_theorem_I_R_w.append(Max_ful_w);
+                Max_ful2_w = ("> 이자비용 : "+ (int)inte +"원, 상환금액 : "+ mmoney +"원 \n");
+                text_theorem_I_R_w.append(Max_ful2_w);
             }
             else {
-                Max_ful_w[i]=("0"+ i +"번째 달 상환 금액 : "+ princ +"원 \n");
-                Max_ful2_w[i]=("> 이자비용 : "+ (int)inte +"원, 상환금액 : "+ mmoney +"원 \n");
-                intent4.putExtra("Max_ful_w", Max_ful_w[i]);//원리금 총합 값 저장
-                intent4.putExtra("Max_ful2_w", Max_ful2_w[i]);
+                Max_ful_w = ("0"+ i +"번째 달 상환 금액 : "+ princ +"원 \n");
+                text_theorem_I_R_w.append(Max_ful_w);
+                Max_ful2_w = ("> 이자비용 : "+ (int)inte +"원, 상환금액 : "+ mmoney +"원 \n");
+                text_theorem_I_R_w.append(Max_ful2_w);
             }
 
             ex_str -= mmoney; //str
