@@ -1,4 +1,4 @@
-package com.example.pack;
+package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,19 +23,19 @@ public class SubActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sub);
 
         // 원금 균등 상환 방식
-
+        
         text_I_p = findViewById(R.id.text_interest_principal); // 원금 이자비용
         text_R_p = findViewById(R.id.text_Repayment_principal); // 원금 원금
         text_S_p = findViewById(R.id.text_Sum_principal); // 상환 총액
 
         // 원리금 균등 상환 방식
-
+        
         text_I_w = findViewById(R.id.text_interest_wonligeum); // 원리금 이자비용
         text_R_w = findViewById(R.id.text_Repayment_wonligeum); // 원리금 원금
         text_S_w = findViewById(R.id.text_Sum_wonligeum); // 상환 총액
 
         // 원금 만기 일시 상환 방식
-
+        
         text_I_m = findViewById(R.id.text_interest_maturity); // 만기 이자비용
         text_R_m = findViewById(R.id.text_Repayment_maturity); // 만기 원금
         text_S_m = findViewById(R.id.text_Sum_maturity); // 상환 총액

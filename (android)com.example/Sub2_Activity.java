@@ -1,4 +1,4 @@
-package com.example.pack;
+package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.text.DecimalFormat;
 
 public class Sub2_Activity extends AppCompatActivity {
-
+    
     // 원금 균등 상환 방식
 
     private TextView text_end_I_p, text_end_R_p,text_end_S_p, text_theorem_I_R_p;

@@ -1,4 +1,4 @@
-package com.example.pack;
+package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     String value_p_1, value_p_2, value_p_3, value_w_1, value_w_2, value_w_3, value_m_1, value_m_2, value_m_3;
 
     DecimalFormat formatter = new DecimalFormat("###,###"); // 숫자 사이에 ,를 넣는 함수
-    private double 돈;
 
     public void A(String str, String btr, String ctr){
         // 원금 균등 상환 방식
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void B(String str, String btr, String ctr){
         // 원리금 균등 상환 방식
-
+        
         double inter_m = Double.valueOf(btr).doubleValue() / 100; // 정수로 들어온 이자율을 백분율로 계산 → ex) 2%로 들어온 경우 0.02로 계산
 
         double inte_m = inter_m / 12; // 월 이자율을 구하는 공식
@@ -95,12 +94,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void C(String str, String btr, String ctr) {
         // 원금 만기 일시 상환 방식
-
+        
         double inter_m = Double.valueOf(btr).doubleValue() / 100; // 정수로 들어온 이자율을 백분율로 계산 → ex) 2%로 들어온 경우 0.02로 계산
 
         double inte_m = Double.valueOf(str).doubleValue() * inter_m / 12; // 월 이자 비용을 구하는 공식
         int minte = (int) inte_m; // 이자비용을 정수 형태로 변환
-        minte = minte / 10 * 10; // 이자비용의 1의 자리 삭제
 
         int sum_m = 0; // 이자비용의 총합을 저장하기 위한 변수
 
@@ -114,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         int total_m = sum_m + money; // 최종 상환비용을 구하는 공식
 
         value_m_1 = formatter.format(sum_m); // 납부해야 하는 이자비용 총합
-        value_m_2 = formatter.format(돈); // 납부해야 하는 원금
+        value_m_2 = formatter.format(money); // 납부해야 하는 원금
         value_m_3 = formatter.format(total_m); // 총 납부액
     }
 
