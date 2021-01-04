@@ -338,16 +338,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="right">
-        <Button
-            android:id="@+id/btn_maturity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:background="@android:color/holo_blue_light"
-            android:text="자세히"
-            android:layout_marginRight="20pt"
-            android:textSize="8pt"
-            />
+            <Button
+                android:id="@+id/btn_maturity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:background="@android:color/holo_blue_light"
+                android:text="자세히"
+                android:layout_marginRight="20pt"
+                android:textSize="8pt"
+                />
         </LinearLayout>
     </LinearLayout>
     <!-- 원금 만기 일시 상환 방식 (이자비용과 원금) -->
