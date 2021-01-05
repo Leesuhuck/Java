@@ -1,12 +1,15 @@
-package com.example.myapplication;
+package com.example.pack;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
@@ -15,7 +18,7 @@ import static java.lang.Math.round;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_text,btn_move;
+    Button btn_text;
 
     EditText text, text2, text3;
 
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void B(String str, String btr, String ctr){
         // 원리금 균등 상환 방식
-        
+
         double inter_m = Double.valueOf(btr).doubleValue() / 100; // 정수로 들어온 이자율을 백분율로 계산 → ex) 2%로 들어온 경우 0.02로 계산
 
         double inte_m = inter_m / 12; // 월 이자율을 구하는 공식
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void C(String str, String btr, String ctr) {
         // 원금 만기 일시 상환 방식
-        
+
         double inter_m = Double.valueOf(btr).doubleValue() / 100; // 정수로 들어온 이자율을 백분율로 계산 → ex) 2%로 들어온 경우 0.02로 계산
 
         double inte_m = Double.valueOf(str).doubleValue() * inter_m / 12; // 월 이자 비용을 구하는 공식
@@ -125,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         text = findViewById(R.id.text);
         text2 = findViewById(R.id.text2);
         text3 = findViewById(R.id.text3);
+
         Button btn_text = (Button)findViewById(R.id.btn1);
 
         btn_text.setOnClickListener(new View.OnClickListener() {
@@ -135,11 +139,11 @@ public class MainActivity extends AppCompatActivity {
                 btr = text2.getText().toString();
                 ctr = text3.getText().toString();
 
-                A(str,btr,ctr);
+                A(str, btr, ctr);
 
-                B(str,btr,ctr);
+                B(str, btr, ctr);
 
-                C(str,btr,ctr);
+                C(str, btr, ctr);
 
                 Map_p_1 = "" + value_p_1; // 원금 이자 문자열로 변환
                 Map_w_1 = "" + value_w_1; // 원리금 이자 문자열로 변환
@@ -175,5 +179,48 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        text.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == event.KEYCODE_ENTER) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        text2.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == event.KEYCODE_ENTER) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        text3.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(event.getAction() == KeyEvent.ACTION_DOWN) {
+                    //android:singleLine = "true" 한줄입력 처리하기
+                    //android:lines = "1" 라인사이즈 한줄
+                    //이벤트안에 있는 자식인 액션을가져옴
+                    // 액션메소드안에 있는 키인벤트에 액션다운이라는 실행을 가져옴
+                    // 액션다운은 키를 눌렀을 때를 뜻함
+
+                    if (keyCode == event.KEYCODE_ENTER) {
+                        return true;
+                        // 여기서 알수 있듯이 내가 어던키? 즉 키를 눌렀지만 어떤키를
+                        // 눌렀을때 실행차별을 두기위해 엔터키를 찾아 지정함
+                    }
+                }
+                return false;
+            }
+        });
     }
 }
